@@ -100,6 +100,8 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
+            $this->addFlash('success', 'Article modifié !');
+
             return $this->redirectToRoute('homepage', array(
                 'id' => $article->getId(),
             ));

@@ -32,7 +32,7 @@ class CategoryController extends Controller
             $em->persist($catarticle);
             $em->flush();
 
-            // $this->addFlash('success', 'Categorie créée !');
+            $this->addFlash('success', 'Categorie créée !');
 
             return $this->redirectToRoute('category_list');
         }
@@ -67,6 +67,8 @@ class CategoryController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
+
+            $this->addFlash('success', 'Catégorie modifiée !');
 
             return $this->redirectToRoute('category_list', array(
                 'id' => $catarticle->getId(),
