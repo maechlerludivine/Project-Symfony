@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2> Liste des catégories : </h2>
+        {% for catarticle in catarticle %}
+            <div class="col-md-8">
+                    <h2>{{ catarticle.name }}</h2> <a href="{{ path('category_edit', {"id":catarticle.id}) }}">Modifier</a>
+            </div>
+        {% endfor %}
+        <br>
+        <br>
+        <a href="{{ path('category_new') }}" class="btn btn-sm btn-info pull-right"><strong>Ajouter une categorie</strong></a>
+        <a href="{{ path('homepage') }}" class="btn btn-sm btn-info pull-right"><strong>Liste des articles</strong></a>
+        {% for message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+{% endblock %}

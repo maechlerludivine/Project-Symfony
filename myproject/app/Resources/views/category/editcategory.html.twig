@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('category_list') }}" class="btn btn-sm btn-default pull-right">Retour à la liste</a>
+    <div class="row">
+        <h3>Modification de le categorie : #{{ catarticle.id }}</h3>
+        {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
+    </div>
+        {% for message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}    
+{% endblock %}
